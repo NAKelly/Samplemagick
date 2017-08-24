@@ -1,0 +1,29 @@
+{
+  "name": "Web",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^3.3.0",
+    "react-scripts": "0.9.2",
+    "redux-devtools": "^3.3.2"
+  },
+  "dependencies": {
+    "axios": "^0.15.3",
+    "babel-polyfill": "^6.23.0",
+    "bootstrap": "4.0.0-alpha.6",
+    "materialize-css": "^0.98.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-router": "^3.0.2",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start_with_sass": "concurrently \"react-scripts start\" \"sass --watch src/styles:src/styles\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

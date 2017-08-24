@@ -1,0 +1,3 @@
+## Sample Magick Initial version
+
+# Local setup instructions to follow ...

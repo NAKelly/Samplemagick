@@ -1,0 +1,122 @@
+// custom variables here
+
+
+.container {
+  min-width: 98% !important;
+  margin: 1% !important;
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// generalized classes:
+
+@each $value in 0, 2, 5, 10, 15, 20, 25 {
+  @each $orientation in '', '-top', '-bottom', '-left', '-right' {
+    .padding#{$orientation}-#{$value} {
+      padding#{$orientation}: #{($value)}px;
+    }
+  }
+}
+
+@each $value in 0, 2, 5, 10, 15, 20, 25, 30, 40, 60 {
+  @each $orientation in '', '-top', '-bottom', '-left', '-right' {
+    .margin#{$orientation}-#{$value} {
+      margin#{$orientation}: #{($value)}px;
+    }
+  }
+}
+
+main a {
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+button[type="submit"]{
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+nav {
+  font-weight: lighter;
+}
+
+nav ul a.active {
+  background-color: darken($primary-color, 10%);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.icon-close {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  color: black;
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+  padding-left: 5px;
+}
+
+.small {
+  font-size: 70%;
+  font-weight: 300;
+}
+
+main {
+  padding-bottom: 60px;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: #4d4d4d;
+  color: #ccc;
+  padding: 5px;
+  .left {
+    margin-top: -2px;
+  }
+  .right {
+    margin-top: -5px;
+    .footer-name {
+      position: relative;
+      top: -6px;
+    }
+  }
+  a {
+    &:hover {
+      color: #ccc;
+    }
+  }
+}
+
+.side-nav {
+  padding-bottom: 60px !important;
+}
+
+a.table-active {
+  color: $secondary-color;
+}
+
+//override:
+
+select.form-control:not([size]):not([multiple]), input {
+  height: 39.5px !important;
+}
+
+.side-nav li > a.active {
+  color: white;
+  &:hover {
+    color: black;
+  }
+}
+
+.side-nav li a {
+  font-size: 150%;
+}
