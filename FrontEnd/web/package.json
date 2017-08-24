@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start_with_sass": "concurrently \"react-scripts start\" \"sass --watch src/styles:src/styles\"",
+    "start_with_sass": "concurrently \"PORT=3001 react-scripts start\" \"sass --watch src/styles:src/styles\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
