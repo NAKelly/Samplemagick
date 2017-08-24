@@ -10,6 +10,18 @@ import App from './containers/App';
 import configureStore from './store/configureStore';
 const store = configureStore();
 
+// set some application globals:
+
+window._applicationGlobals = {};
+
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  window._applicationGlobals.apiUrl = "http://localhost:3000/"
+  window._applicationGlobals.applicationUrl = "http://localhost:3001/"
+} else {
+  window._applicationGlobals.apiUrl = "/"
+  window._applicationGlobals.applicationUrl = "/"
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

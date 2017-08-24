@@ -1,5 +1,5 @@
 import * as types from './types';
-// import Api from '../lib/api'
+import Api from '../lib/api'
 
 export const updateCounter = (num) => {
   return {
@@ -20,16 +20,21 @@ export const fetchWidgets = (params) => {
     let widgets = [{title: "Fly my pretties", text: "It was the best of times, it was the blurst of times!"}, {title: "Weasels", text: "Weaseling out of things is what separates us from the animals, except the Weasel!"}];
     dispatch(setWidgets(widgets));
   }
-  // // normally we would make an API call
-  // return (dispatch, getState) => {
-  //   const params = [
-  //     `i=${encodeURIComponent(params)}`,
-  //     'p=1'
-  //   ].join('&')
-  //   return Api.get(`/api/?${params}`).then(resp => {
-  //     dispatch(mySampleAction({samples: resp}));
-  //   }).catch( (ex) => {
-  //     console.log(ex);
-  //   });
-  // }
+}
+
+
+export const login = (email, password, handleErrors, callback) => {
+  return(dispatch, getState) => {
+    return Api.post('users/sign_in', {email: email, password: password})
+      .then(resp => resp.json())
+      .then(resp => {
+        if (resp !== null) {
+          debugger;
+          // Cookie.writeCookie('jwt', resp.auth_token, 2);
+          // dispatch(verifyCookie());
+        } else {
+          handleErrors(["Incorrect username password combination"]);
+        }
+      });
+  }
 }

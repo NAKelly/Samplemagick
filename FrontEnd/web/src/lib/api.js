@@ -1,40 +1,62 @@
-class Api {
-  static headers() {
-    return {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'dataType': 'json',
-    }
+import 'whatwg-fetch';
+// import Cookie from './cookie'
+
+const setHeaders = () => {
+  var headers;
+  // if (Cookie.readCookie('jwt') && Cookie.readCookie('jwt').length > 0) {
+  //   headers = {
+  //     'Authorization': 'Bearer '+Cookie.readCookie('jwt'),
+  //     'Content-Type': 'application/json'
+  //   }
+  // } else {
+  //   headers = {
+  //     'Content-Type': 'application/json'
+  //   }
+  // }
+  headers = {
+    'Content-Type': 'application/json'
   }
+  return headers;
+}
+
+class Api {
+  // static verifyCookie() {
+  //   const cookie = Cookie.readCookie('jwt');
+  //   return this.post('users/verify', {cookie: cookie});
+  // }
 
   static get(route) {
-    return this.xhr(route, null, 'GET');
-  }
-
-  static put(route, params) {
-    return this.xhr(route, params, 'PUT')
+    const headers = setHeaders();
+    return fetch(window._applicationGlobals.apiUrl + route+'.json', {headers: headers});
   }
 
   static post(route, params) {
-    return this.xhr(route, params, 'POST')
+    var headers = setHeaders();
+    return fetch(window._applicationGlobals.apiUrl + route+'.json', {
+      headers: headers,
+      method: 'POST',
+      body: JSON.stringify(params)
+    });
   }
 
-  static delete(route, params) {
-    return this.xhr(route, params, 'DELETE')
+  static put(route, params) {
+    var headers = setHeaders();
+    return fetch(window._applicationGlobals.apiUrl + route+'.json', {
+      headers: headers,
+      method: 'PUT',
+      body: JSON.stringify(params)
+    });
   }
 
-  static xhr(route, params, verb) {
-    const host = 'http://www.myhost.com'
-    const url = `${host}${route}`
-    let options = Object.assign({ method: verb }, params ? { body: JSON.stringify(params) } : null );
-    options.headers = Api.headers()
-    return fetch(url, options).then( resp => {
-      let json = resp.json();
-      if (resp.ok) {
-        return json
-      }
-      return json.then(err => {throw err});
-    }).then( json => json.results );
+  static destroy(route, params) {
+    var headers = setHeaders();
+    return fetch(window._applicationGlobals.apiUrl + route+'.json', {
+      headers: headers,
+      method: 'DELETE',
+      body: JSON.stringify(params)
+    });
   }
 }
-export default Api
+
+
+export default Api;

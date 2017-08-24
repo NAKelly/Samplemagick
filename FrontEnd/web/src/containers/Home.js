@@ -10,6 +10,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.fetchWidgets();
+    this.login();
     this.state = {newWidget: {title: "", text: ""}};
   }
 
@@ -23,6 +24,10 @@ class Home extends React.Component {
 
   updateCounter() {
     this.props.updateCounter(this.props.counter + 1);
+  }
+
+  login(){
+    this.props.login('paul@audiofu.com', 'blahblah')
   }
 
   fetchWidgets() {
