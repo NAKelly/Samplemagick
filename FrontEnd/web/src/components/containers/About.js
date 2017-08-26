@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AboutView from './../presentation/About'
+import AboutView from './../views/About'
 
 const About = (props) => {
   return (

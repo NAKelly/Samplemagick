@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
-import Page from './Page';
+import Page from './_shared/Page';
 import Home from './Home';
 import About from './About';
 

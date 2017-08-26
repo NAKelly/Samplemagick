@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {PageView, LoadingScreen} from './../presentation/Page'
+import {PageView, LoadingScreen} from './../../views/_shared/Page'
 
 class Page extends React.Component {
 
@@ -9,7 +9,7 @@ class Page extends React.Component {
   }
 
   componentDidMount() {
-    window.$(".icon-menu-mobile").sideNav();
+    window.$(".icon-menu-mobile").sideNav({closeOnClick: false});
   }
 
   mobileMenuShown() {

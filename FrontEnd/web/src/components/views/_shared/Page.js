@@ -26,10 +26,10 @@ const Header = (props) => {
           <div className="left">
             <a href="#mobile-menu" data-activates="mobile-menu" className="button-collapse icon-menu-mobile" onClick={(e) => {component.toggleMobileMenu(e).bind(component)}}><i className="material-icons">menu</i></a>
             <IndexLink to={'/'} activeClassName="active" className="left hide-on-large-only">
-              <img src={require('./../assets/img/logo.svg')} alt="title" className="margin-top-10"/>
+              <img src={require('./../../../assets/img/logo-placeholder.png')} width="50" alt="title" className="margin-top-10"/>
             </IndexLink>
             <IndexLink to={'/'} activeClassName="active" className="left hide-on-med-and-down">
-              <img src={require('./../assets/img/logo.svg')} alt="title" className="margin-top-10 padding-left-15 padding-right-15"/>
+              <img src={require('./../../../assets/img/logo-placeholder.png')} width="50" alt="title" className="margin-top-10 margin-left-15 margin-right-15"/>
             </IndexLink>
             <ul className="left hide-on-med-and-down">
               <li>
@@ -46,7 +46,7 @@ const Header = (props) => {
                 }}>close</i>
               </div>
               <li>
-                <img src={require('./../assets/img/logo.svg')} alt="title" className="margin-top-10 margin-left-15"/>
+                <img src={require('./../../../assets/img/logo-placeholder.png')} width="50" alt="title" className="margin-top-10 margin-left-15"/>
               </li>
               <li>
                 <IndexLink to={'/'} activeClassName="active" className="nav-link">Home</IndexLink>

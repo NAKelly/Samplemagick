@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PageNotFoundView from './../presentation/PageNotFound'
+import PageNotFoundView from './../views/PageNotFound'
 
 const PageNotFound = (props) => {
   return (
